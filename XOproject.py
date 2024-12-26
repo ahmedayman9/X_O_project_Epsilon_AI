@@ -17,3 +17,7 @@ while True:
             mat[x][y] ="x"
             break    
     display()
+    userinput=list(map(int,input("enter your position as '1 0' :").split()))
+    mat[userinput[0]][userinput[1]]="o"
+    display()
+    print("*"*50)
