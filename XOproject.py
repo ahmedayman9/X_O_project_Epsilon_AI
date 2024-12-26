@@ -1,0 +1,19 @@
+import random as r
+mat=[["","","_"],
+     ["","","_"],
+     ["","","_"]]
+
+def display():
+    for i in mat:
+        print(i)
+display()
+print("*"*50)
+while True:
+    while True:
+        x=r.choice([0,1,2])
+        y=r.choice([0,1,2])
+        z=mat[x][y]
+        if z!="x" and z!="o":
+            mat[x][y] ="x"
+            break    
+    display()
