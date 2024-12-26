@@ -56,13 +56,7 @@ while True:
         
     print(game)
     
-    while True:
-        row = random.randint(0,2)
-        col = random.randint(0,2)
-        if game[row][col] == "":
-            game[row][col] = 'x'
-            break
-    print(game)
+    --
     
     if check_win(game, "x"):
       print("Player 'x' has won!")
