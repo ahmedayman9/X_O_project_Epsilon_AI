@@ -30,6 +30,24 @@ def is_full():
 print("Welcome to x o")
 print_matrix()
 
+while True:
+    print("your turn:")
+    while True:
+        try:
+            move = int(input("Enter the position (0-8): "))
+            if move in [matrix[i][j] for i in range(3) for j in range(3)]:
+                break
+            else:
+                print("Invalid entry. Try again.")
+        except ValueError:
+            print("Invalid input. Enter a number between 0 and 8.")
+    for i in range(3):
+        for j in range(3):
+            if matrix[i][j] == move:
+                matrix[i][j] = "X"
+                break
+    print_matrix()
+
 def print_matrix():
     for row in matrix:
         print(" | ".join(str(elem) for elem in row))
