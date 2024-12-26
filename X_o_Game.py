@@ -71,3 +71,13 @@ def print_matrix():
     if is_full():
         print("It's a draw!")
         break
+
+
+if mat[0][0]=="o" and  mat[1][1]=="o" and  mat[2][2]=="o":
+        print('you win')
+    if  mat[0][0]=="x" and  mat[1][1]=="x" and  mat[2][2]=="x":
+        print('hahah! you lose')
+    if mat[0][2]=="o" and  mat[1][1]=="o" and  mat[2][0]=="o":
+        print('you win')
+    if mat[0][2]=="x" and  mat[1][1]=="x" and  mat[2][0]=="x":
+        print('hahah! you lose')
