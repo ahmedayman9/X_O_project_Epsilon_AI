@@ -47,6 +47,9 @@ def check(matrix)->list:
                 stop_2+=1
 # whofirst to select who will start game.
 whofirst=r.choice(["pc","player"])
+if whofirst=="pc":
+    print("PC will start")
+else:print("You will start")
 while True:
     if whofirst=="pc":
         #this loop for computer to choice position of "X".
