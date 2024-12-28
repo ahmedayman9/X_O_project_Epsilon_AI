@@ -12,8 +12,39 @@ def display():
         print(i)
 
 
-def check(matrix):#ebrame enter the func here.
-    pass
+def check(matrix)->list:
+    """this function to check if the player win or lose,
+        and must take list of lists """
+    #these are two global variables for end the game.
+    global stop_1 ,stop_2
+    constant=-1
+    axe1=[]
+    axe2=[]
+    # this loop to check on (row ,colum,axe1,axe2)
+    for i in range(0,3):
+        row=[]
+        colum=[]
+        axe1.append(matrix[i][i])
+        axe2.append(matrix[i][constant])
+        constant-=1
+        for j in range(0,3):
+            row.append(matrix[i][j])
+            colum.append(matrix[j][i])
+        if ["X","X","X"] in(row , colum , axe1, axe2):
+            print("*"*20,"\nyou lose")
+            display()
+            stop_1=1
+            break
+        if ["O","O","O"] in(row , colum , axe1, axe2):
+            print("*"*20,"\nyou win")
+            display()
+            stop_1=1
+            break
+    #to check if the Game end or Not.
+    for t in matrix:
+        for u in t:
+            if u =="_":
+                stop_2+=1
 # whofirst to select who will start game.
 whofirst=r.choice(["pc","player"])
 while True:
