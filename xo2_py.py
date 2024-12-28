@@ -17,9 +17,7 @@ for row in matrix:
 xl=[] # x  List ofselections
 ol=[] # o List of selections
 while True :
-   # print('avialable locations = ' ,a)
     x=int(input('please input x location from board    ')) # X location input selection
-    #clear_output() # clear screen
     print('You selected      ',x)
     if x in a :
       matrix[a1[x-1]][a2[x-1]]='X'
@@ -45,7 +43,6 @@ while True :
       print(' not avialable select again')
       continue
     o=random.choice(a) # O selections from avialable locations
-    #clear_output()
     print('Your opponent selected =    ',o)
     if o in a:
       matrix[a1[o-1]][a2[o-1]]='O' # Update natrix
