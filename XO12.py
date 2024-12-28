@@ -1,6 +1,6 @@
 import random
 a=[1,2,3,4,5,6,7,8,9] # Free locations
-matrix = [['1','2','3'], ['4','5','6'], ['7','8','9']] #board 
+matrix = [['1','2','3'], ['4','5','6'], ['7','8','9']] #board
 a1=[0,0,0,1,1,1,2,2,2] #row index
 a2=[0,1,2,0,1,2,0,1,2] #column index
 b=[1,2,3] # win condition
@@ -17,8 +17,8 @@ for row in matrix:
     print(row)  # Print each row
 xl=[] # x  List ofselections
 ol=[] # o List of selections
-
-while True :
+winner = False
+while not winner :
    # print('avialable locations = ' ,a)
     x=int(input('please input x location from board    ')) # X location input selection
     #clear_output() # clear screen
@@ -32,23 +32,20 @@ while True :
         print(row)
       a.remove(x) # Removing last selection from the original selections
       xl=xl+[x] # Update  List of selections X
-    #  print('xl=',xl) # Updated list of selections X
       for condition in wincond :
-        print(condition)
+        #print(condition)
         if condition.issubset(set(xl)) == True :
-         print('X wins')
-         break
-      #if (cx1 or cx2 or cx3 or cx4 or cx5 or cx6 or cx7 or cx8) == True :
-        #print('X wins') # Win condition
-        #break
-      #elif len(a) == 0 :
-        print('no more locations')
+         winner=True
+         print('X wins Game over')
+      if winner :
+        break
+      elif len(a) == 0 :
+        print('No more locations No Winners Game over')
         break
     else :
       print(' not avialable select again')
       continue
     o=random.choice(a) # O selections from avialable locations
-    #clear_output()
     print('Your opponent selected =    ',o)
     if o in a:
       #print(a1[o-1]) # raw index
@@ -58,15 +55,10 @@ while True :
         print(row)
       a.remove(o)
       ol=ol+[o] # Update List of selections
-     # print('ol=',ol)   #Updated list of selections O
-      co1= set(b).issubset(set(ol)) # check if o selelctions wins
-      co2= set(c).issubset(set(ol)) # check if o selelctions wins
-      co3= set(d).issubset(set(ol)) # check if o selelctions wins
-      co4= set(e).issubset(set(ol)) # check if o selelctions wins
-      co5= set(f).issubset(set(ol)) # check if o selelctions wins
-      co6= set(g).issubset(set(ol)) # check if o selelctions wins
-      co7= set(h).issubset(set(ol)) # check if o selelctions wins
-      co8= set(i).issubset(set(ol)) # check if o selelctions wins
-      if (co1 or co2 or co3 or co4 or co5 or co6 or co7 or co8) == True :
-        print('O wins')
+      for condition in wincond :
+        #print(condition)
+        if condition.issubset(set(ol)) == True :
+         winner=True
+         print('O wins Game over')
+      if winner :
         break
