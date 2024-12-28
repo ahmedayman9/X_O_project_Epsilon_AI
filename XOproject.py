@@ -9,7 +9,9 @@ stop_2=0
 def display():
     """this func to show the game """
     for i in mat:
-        print(i)
+        for j in i:
+            print(j,end="  ")
+        print("\n")
 
 
 def check(matrix)->list:
