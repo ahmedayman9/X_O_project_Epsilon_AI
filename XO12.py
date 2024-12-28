@@ -17,23 +17,17 @@ for row in matrix:
     print(row)  # Print each row
 xl=[] # x  List ofselections
 ol=[] # o List of selections
-winner = False
+winner = False # winner code continue stop control
 while not winner :
-   # print('avialable locations = ' ,a)
     x=int(input('please input x location from board    ')) # X location input selection
-    #clear_output() # clear screen
     print('You selected      ',x)
     if x in a :
-     # print(' len a = ',(len(a)))
-      #print(a1[x-1])
-      #print(a2[x-1])
       matrix[a1[x-1]][a2[x-1]]='X'
       for row in matrix:
         print(row)
       a.remove(x) # Removing last selection from the original selections
       xl=xl+[x] # Update  List of selections X
       for condition in wincond :
-        #print(condition)
         if condition.issubset(set(xl)) == True :
          winner=True
          print('X wins Game over')
@@ -48,8 +42,6 @@ while not winner :
     o=random.choice(a) # O selections from avialable locations
     print('Your opponent selected =    ',o)
     if o in a:
-      #print(a1[o-1]) # raw index
-      #print(a2[o-1]) # column index
       matrix[a1[o-1]][a2[o-1]]='O' # Update natrix
       for row in matrix: # print updated matrix
         print(row)
