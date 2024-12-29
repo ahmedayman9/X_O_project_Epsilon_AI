@@ -11,7 +11,7 @@ def display():
         print("\n")
 
 
-def check(matrix)->list:
+def check():
     """this function to check if the player win or lose,
         and must take list of lists """
     #these are two global variables for end the game.
@@ -25,12 +25,12 @@ def check(matrix)->list:
     for i in range(0,3):
         row=[]
         colum=[]
-        axe1.append(matrix[i][i])
-        axe2.append(matrix[i][constant])
+        axe1.append(mat[i][i])
+        axe2.append(mat[i][constant])
         constant-=1
         for j in range(0,3):
-            row.append(matrix[i][j])
-            colum.append(matrix[j][i])
+            row.append(mat[i][j])
+            colum.append(mat[j][i])
         if ["X","X","X"] in(row , colum , axe1, axe2):
             print("*"*20,"\nyou lose")
             display()
@@ -42,7 +42,7 @@ def check(matrix)->list:
             stop_1=1
             break
     #to check if the Game end or Not.
-    for t in matrix:
+    for t in mat:
         for u in t:
             if u =="_":
                 stop_2=1
@@ -66,7 +66,7 @@ while True:
                 break
     # to show the bord of 'XO' and check if game is end or not.
     display()
-    check(mat)
+    check()
     # end if he win or lose.
     if stop_1==1:
         break
@@ -94,7 +94,7 @@ while True:
                     break
                 else:print("Are you joking ? Do you want to play on old play ?")
             else:print("your number is out of range 1 to 9")
-    check(mat)
+    check()
     if stop_1==1:
         break
     if stop_2==0:
