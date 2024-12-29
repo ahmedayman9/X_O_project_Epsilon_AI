@@ -35,10 +35,10 @@ while not winner :
       if winner :
         break
       elif len(a) == 0 :
-        print('No more locations No Winners Game over')
+        print('No more locations , No Winners Game over, Please restart')
         break
     else :
-      print(' not avialable select again')
+      print(' Not avialable , Please select again')
       continue
     o=random.choice(a) # O selections from avialable locations
     print('Your opponent selected =    ',o)
@@ -52,6 +52,6 @@ while not winner :
         #print(condition)
         if condition.issubset(set(ol)) == True :
          winner=True
-         print('O wins Game over')
+         print('O wins , Game over')
       if winner :
         break
