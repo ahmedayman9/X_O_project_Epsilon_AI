@@ -3,9 +3,6 @@ import random as r
 mat=[["_","_","_"],
      ["_","_","_"],
      ["_","_","_"]]
-stop_1=0
-stop_2=0
-
 def display():
     """this func to show the game """
     for i in mat:
@@ -19,6 +16,8 @@ def check(matrix)->list:
         and must take list of lists """
     #these are two global variables for end the game.
     global stop_1 ,stop_2
+    stop_1=0
+    stop_2=0
     constant=-1
     axe1=[]
     axe2=[]
@@ -46,15 +45,17 @@ def check(matrix)->list:
     for t in matrix:
         for u in t:
             if u =="_":
-                stop_2+=1
+                stop_2=1
 # whofirst to select who will start game.
 whofirst=r.choice(["pc","player"])
 if whofirst=="pc":
     print("PC will start")
 else:print("You will start")
+plist=[]
 while True:
     if whofirst=="pc":
         #this loop for computer to choice position of "X".
+        
         while True:
             X=r.choice([0,1,2])
             y=r.choice([0,1,2])
@@ -78,7 +79,11 @@ while True:
         while True:
             #this variable index for stor the index like that[[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
             index=[[i,j]for i in range(3) for j in range(3)]
-            enter=int(input("enter number of position from 1 to 9:"))
+            try:
+                enter=int(input("plese enter number of position from 1 to 9 in the empty place:"))
+            except ValueError as e:
+                print(e)
+                continue
             #this to check if input from 1 to 9
             if enter in [i for i in range(1,10)]:
                 userinput=index[enter-1]
@@ -87,9 +92,13 @@ while True:
                     mat[userinput[0]][userinput[1]]="O"
                     whofirst="pc"
                     break
+                else:print("Are you joking ? Do you want to play on old play ?")
+            else:print("your number is out of range 1 to 9")
     check(mat)
     if stop_1==1:
         break
     if stop_2==0:
+        if whofirst=="pc":
+            display()
         print("the game is end")
         break
