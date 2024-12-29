@@ -1,3 +1,4 @@
+print('Welcome to XO game , You are X player , Please select your location from the board of number , Each number ia relaterd to a free location , I wish you a nice time ')
 import random
 a=[1,2,3,4,5,6,7,8,9] # Free locations
 matrix = [['1','2','3'], ['4','5','6'], ['7','8','9']] #board
