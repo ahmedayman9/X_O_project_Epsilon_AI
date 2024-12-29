@@ -5,6 +5,7 @@ mat=[["_","_","_"],
      ["_","_","_"]]
 def display():
     """this func to show the game """
+    print("-"*20)
     for i in mat:
         for j in i:
             print(j,end="  ")
@@ -32,15 +33,15 @@ def check():
             colum.append(mat[j][i])
         if ["X","X","X"] in(row , colum , axe1, axe2):
             if choic==1:
-                print("*"*20,"\nplayer_2  win")
+                print("*"*20,"\nplayer_2  =>'win'")
             else:print("*"*20,"\nyou lose")
             display()
             stop_1=1
             break
         if ["O","O","O"] in(row , colum , axe1, axe2):
             if choic==1:
-                print("*"*20,"\nplayer_1 win")
-            print("*"*20,"\nyou win")
+                print("*"*20,"\nplayer_1 =>'win'")
+            else:print("*"*20,"\nyou =>'win'")
             display()
             stop_1=1
             break
@@ -54,13 +55,13 @@ while continu=="y":
     choic=int(input("\n\nif You are Two players Enter (1) or Enter (2) to play with PC : "))
     if choic==2:
         # whofirst to select who will start game.
-        print("the player_1 play with 'O'   player_2 play with 'X'")
         whofirst=r.choice(["pc","player_1"])
         if whofirst=="pc":
             print("PC will start")
         else:print("You will start")
     if choic==1:
         # whofirst to select who will start game.
+        print("the player_1 play with 'O'   player_2 play with 'X'")
         whofirst=r.choice(["player_2","player_1"])
         if whofirst=="player_2":
             print("player_2 will start")
@@ -143,3 +144,8 @@ while continu=="y":
             print("the game is end")
             break
     continu=str(input("To play again enter (y) If NOt enter (n): "))
+    if continu=="y":
+        mat=[["_","_","_"],
+             ["_","_","_"],
+             ["_","_","_"]]
+        
