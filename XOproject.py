@@ -12,8 +12,7 @@ def display():
 
 
 def check():
-    """this function to check if the player win or lose,
-        and must take list of lists """
+    """this function to check if the player win or lose. """
     #these are two global variables for end the game.
     global stop_1 ,stop_2
     stop_1=0
