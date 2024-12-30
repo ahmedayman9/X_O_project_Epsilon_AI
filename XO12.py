@@ -1,3 +1,4 @@
+print('Welcome to XO game , You are X player , Please select your location from the board of number , Each number ia relaterd to a free location , I wish you a nice time ')
 import random
 a=[1,2,3,4,5,6,7,8,9] # Free locations
 matrix = [['1','2','3'], ['4','5','6'], ['7','8','9']] #board
@@ -34,10 +35,10 @@ while not winner :
       if winner :
         break
       elif len(a) == 0 :
-        print('No more locations No Winners Game over')
+        print('No more locations , No Winners Game over, Please restart')
         break
     else :
-      print(' not avialable select again')
+      print(' Not avialable , Please select again')
       continue
     o=random.choice(a) # O selections from avialable locations
     print('Your opponent selected =    ',o)
@@ -51,6 +52,6 @@ while not winner :
         #print(condition)
         if condition.issubset(set(ol)) == True :
          winner=True
-         print('O wins Game over')
+         print('O wins , Game over')
       if winner :
         break
