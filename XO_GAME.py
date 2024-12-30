@@ -63,7 +63,7 @@ while True:
             game[row][col] = 'x'
             break
         print(game)
-6
+
 
     
     if check_win(game, "x"):
