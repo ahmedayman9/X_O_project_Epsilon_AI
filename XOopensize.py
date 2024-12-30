@@ -31,8 +31,8 @@ while not winner :
     print('You selected      ',x)
     if x in a :
       matrix[a1[x-1]][a2[x-1]]= '  X  '
-      for row in matrix:
-        print(row)
+      #for row in matrix:
+        #print(row)
       a.remove(x) # Removing last selection from the original selections
       xl=xl+[x] # Update  List of selections X
       for condition in wincond :
