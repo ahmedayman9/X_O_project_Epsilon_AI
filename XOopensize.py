@@ -59,7 +59,7 @@ while not winner :
       a.remove(o)
       ol=ol+[o] # Update List of selections
       for condition in wincond :
-        #print(condition)
+        
         if condition.issubset(set(ol)) == True :
          winner=True
          print('O wins , Game over')
