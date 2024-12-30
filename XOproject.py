@@ -1,4 +1,5 @@
 """X O  game"""
+#omar's part start
 import random as r
 mat=[["_","_","_"],
      ["_","_","_"],
@@ -13,6 +14,7 @@ def display():
         for j in i:
             print(j,end="  ")
         print("\n")
+#omar's part end
 
 
 def check():
