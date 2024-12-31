@@ -14,7 +14,8 @@ for i in range(n):
 a2=[]
 a2=[i for i in range(n)]*n
 w1 = [a[i:i + n] for i in range(0, len(a), n)] #list of winning raws
-w1s=[[f"{item:<5}" for item in row] for row in w1] #Transfer winning list from integer into string
+#w1s=[[f"{item:<5}" for item in row] for row in w1] #Transfer winning list from integer into string
+w1s=[['{:^7}'.format(str(item)) for item in sublist] for sublist in w1]
 matrix = w1s
 for row in matrix:
     print(row)
@@ -30,7 +31,7 @@ while not winner :
     x=int(input('please input x location from board    ')) # X location input selection
     print('You selected      ',x)
     if x in a :
-      matrix[a1[x-1]][a2[x-1]]= '  X  '
+      matrix[a1[x-1]][a2[x-1]]= '   X   '
       #for row in matrix:
         #print(row)
       a.remove(x) # Removing last selection from the original selections
@@ -38,6 +39,8 @@ while not winner :
       for condition in wincond :
         if condition.issubset(set(xl)) == True :
          winner=True
+          for row in matrix: # print updated matrix
+            print(row)
          print('X wins Game over')
       if winner :
         break
@@ -53,7 +56,7 @@ while not winner :
     o=random.choice(a) # O selections from avialable locations
     print('Your opponent selected =    ',o)
     if o in a:
-      matrix[a1[o-1]][a2[o-1]]='  O  ' # Update natrix
+      matrix[a1[o-1]][a2[o-1]]='   O   ' # Update natrix
       for row in matrix: # print updated matrix
         print(row)
       a.remove(o)
