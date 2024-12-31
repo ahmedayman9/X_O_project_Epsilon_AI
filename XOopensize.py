@@ -39,7 +39,7 @@ while not winner :
       for condition in wincond :
         if condition.issubset(set(xl)) == True :
          winner=True
-          for row in matrix: # print updated matrix
+         for row in matrix: # print X winner matrix
             print(row)
          print('X wins Game over')
       if winner :
