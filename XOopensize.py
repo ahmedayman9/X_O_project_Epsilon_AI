@@ -31,9 +31,7 @@ while not winner :
     x=int(input('please input x location from board    '))                                   # X location input selection
     print('You selected      ',x)
     if x in a :
-      matrix[a1[x-1]][a2[x-1]]= '   X   '
-      #for row in matrix:
-        #print(row)
+      matrix[a1[x-1]][a2[x-1]]= '\033[34m   X   \033[0m'
       a.remove(x)                                                    # Removing last selection from the original selections
       xl=xl+[x] # Update  List of selections X
       for condition in wincond :
@@ -56,7 +54,7 @@ while not winner :
     o=random.choice(a)                                                                 # O selections from avialable locations
     print('Your opponent selected =    ',o)
     if o in a:
-      matrix[a1[o-1]][a2[o-1]]='   O   '                                                                        # Update natrix
+      matrix[a1[o-1]][a2[o-1]]= '\033[31m   O   \033[0m'                                                        # Update matrix
       for row in matrix:                                                                                 # print updated matrix
         print(row)
       a.remove(o)
