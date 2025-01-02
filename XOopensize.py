@@ -35,14 +35,16 @@ while not winner :
       a.remove(x)                                                    # Removing last selection from the original selections
       xl=xl+[x] # Update  List of selections X
       for condition in wincond :
-        if condition.issubset(set(xl)) == True :
+        if condition.issubset(set(xl))  :
          winner=True
          for row in matrix:                                                                          # print X winner matrix
-            print(row)
+            print("".join(row))
          print('X wins Game over')
       if winner :
         break
       elif len(a) == 0 :
+        for row in matrix :                                                                          # print no winner  matrix 
+          print("".join(row))
         print('No more locations , No Winners Game over, Please restart')
         break
     elif x==3333 :                                                                                            #STOP SELECTION
@@ -56,11 +58,10 @@ while not winner :
     if o in a:
       matrix[a1[o-1]][a2[o-1]]= '\033[31m   O   \033[0m'                                                        # Update matrix
       for row in matrix:                                                                                 # print updated matrix
-        print(row)
+        print("".join(row))
       a.remove(o)
       ol=ol+[o]                                                                                       # Update List of selections
-      for condition in wincond :
-        
+      for condition in wincond :   
         if condition.issubset(set(ol)) == True :
          winner=True
          print('O wins , Game over')
