@@ -1,4 +1,5 @@
 """X O  game"""
+from termcolor import colored 
 import random as r
 mat=[["_","_","_"],
      ["_","_","_"],
@@ -6,12 +7,18 @@ mat=[["_","_","_"],
 #these two variables to select whene the game is over or not
 S1=0
 S2=0
+
 def display():
     """this func to show the game """
     print(">"*50)
     for i in mat:
         for j in i:
-            print(j,end="  ")
+            if j=="X":
+                print(colored(j,"red",None,["bold","blink"]),end="  ")
+            elif j=="O":
+                print(colored(j,"green",None,["bold","blink"]),end="  ")
+            else:
+                print(colored(j,"white","on_white",["bold","blink"]),end="  ")
         print("\n")
 
 
@@ -33,15 +40,15 @@ def check():
             colum.append(mat[j][i])
         if ["X","X","X"] in(row , colum , axe1, axe2):
             if choic==2:
-                print("\\/"*25,"\n\nplayer_2  =>'win'")
-            else:print("\\/"*25,"\n\nyou lose")
+                print("\\/"*25,colored("\n\nplayer_2  =>'win'","yellow",None,["bold","blink"]))
+            else:print("\\/"*25,colored("\n\nyou lose","red",None,["bold","blink"]))
             display()
             S1=1
             break
         if ["O","O","O"] in(row , colum , axe1, axe2):
             if choic==2:
-                print("\\/"*25,"\n\nplayer_1 =>'win'")
-            else:print("\\/"*25,"\n\nyou =>'win'")
+                print("\\/"*25,colored("\n\nplayer_1 =>'win'","yellow",None,["bold","blink"]))
+            else:print("\\/"*25,colored("\n\nyou =>'win'","yellow",None,["bold","blink"]))
             display()
             S1=1
             break
@@ -59,7 +66,7 @@ while GO=="y":
     #***this loop to aske the player if he want to play with PC or with his frind*****
     while True:
         try:
-            choic=int(input("\nFOR one player Enter (1) and FOR two players Enter (2) : "))
+            choic=int(input(colored("\nFOR one player Enter (1) and FOR two players Enter (2) : ","magenta","on_grey")))
             if choic not in [1,2]:
                 print("please enter  1 or 2")
             else:
@@ -71,17 +78,17 @@ while GO=="y":
         # W to select who will start game.
         W=r.choice(["pc","player_1"])
         if W=="pc":
-            print("PC will start")
+            print(colored("PC will start","red"))
         else:
-            print("You will start")
+            print(colored("You will start","green"))
     if choic==2:
         # W to select who will start game.
         print("the player_1 play with 'O'   player_2 play with 'X'")
         W=r.choice(["player_2","player_1"])
         if W=="player_2":
-            print("player_2 will start")
+            print(colored("player_2 will start","red"))
             display()
-        else:print("player_1 will start")
+        else:print(colored("player_1 will start","green"))
 
 
 
@@ -102,7 +109,9 @@ while GO=="y":
                 #this variable index for stor the index like that[[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
                 index=[[i,j]for i in range(3) for j in range(3)]
                 try:
-                    enter=int(input("For Player_2 'X':\n"+"plese enter number of position from 1 to 9 in the empty place:"))
+                    text=colored("plese enter number of position from 1 to 9 in the empty place:","magenta","on_grey")
+                    text2=colored("For Player_2 'X'\n","red")
+                    enter=int(input(text2+text))
                 except ValueError as e:
                     print(e)
                     continue
@@ -133,8 +142,10 @@ while GO=="y":
                 #this variable index for stor the index like that[[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
                 index=[[i,j]for i in range(3) for j in range(3)]
                 try:
-                    V="'O':\n"+"plese enter number of position from 1 to 9 in the empty place:"
-                    enter=int(input(f"For Player_1 {V}" if choic==2 else f"For Player {V}"))
+                    tex=colored("plese enter number of position from 1 to 9 in the empty place:","magenta","on_grey")
+                    V=colored("For Player_1 'O'\n","green")+tex
+                    D=colored("For Player 'O'\n","green")+tex
+                    enter=int(input(V if choic==2 else D))
                 except ValueError as e:
                     print(e)
                     continue
@@ -161,7 +172,7 @@ while GO=="y":
             print("the match ended in a draw with.")
             break
     #****this variable to aske the player if he want play again or not******
-    GO=str(input("\\/"*25+"\n\n\nTo play again enter (y)  And to exit enter any key another: "))
+    GO=str(input("\\/"*25+"\nTo play again enter (y)  And to exit enter any key another: "))
     print(">"*50)
     if GO=="y":
         mat=[["_","_","_"],
