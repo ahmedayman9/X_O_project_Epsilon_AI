@@ -14,7 +14,6 @@ for i in range(n):
 a2=[]
 a2=[i for i in range(n)]*n
 w1 = [a[i:i + n] for i in range(0, len(a), n)]                                                    #list of winning raws
-#w1s=[[f"{item:<5}" for item in row] for row in w1] 
 w1s=[['{:^7}'.format(str(item)) for item in sublist] for sublist in w1] #Transfer winning list from integer into string
 matrix = w1s
 for row in matrix:
