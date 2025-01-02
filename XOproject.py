@@ -1,5 +1,7 @@
 """X O  game"""
 from termcolor import colored 
+
+#omar's part start
 import random as r
 mat=[["_","_","_"],
      ["_","_","_"],
@@ -20,6 +22,7 @@ def display():
             else:
                 print(colored(j,"white","on_white",["bold","blink"]),end="  ")
         print("\n")
+#omar's part end
 
 
 def check():
